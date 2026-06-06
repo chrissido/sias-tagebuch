@@ -7,6 +7,9 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+[context.production.environment]
+  TUNNEL_URL = "https://better-sensitive-equation-theorem.trycloudflare.com"
+
 [[headers]]
   for = "/*"
   [headers.values]
