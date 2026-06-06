@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // ---------- Dateien verarbeiten (Hochladen zum PC-Server) ----------
-  const LOCAL_SERVER = 'http://localhost:8899';
+  // ---------- Dateien verarbeiten (Upload zu Netlify → GitHub) ----------
+  const UPLOAD_URL = '/.netlify/functions/upload';
 
   function handleFiles(files) {
     const list = document.getElementById('upload-list');
@@ -224,8 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     Promise.all(promises)
       .then(fileData => {
-        if (progress) progress.textContent = 'Verbinde mit LUMI-Server…';
-        return fetch(`${LOCAL_SERVER}/upload`, {
+        if (progress) progress.textContent = 'Sende an LUMI…';
+        return fetch(UPLOAD_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
           note.innerHTML = `
             <div class="upload-item-info" style="text-align: center;">
               <div class="upload-item-title" style="color: var(--sage-dark);">✨ ${successCount} Datei(en) gespeichert!</div>
-              <div class="upload-item-meta">LUMI verarbeitet sie beim nächsten Durchlauf (12:00 / 00:00) 🚀</div>
+              <div class="upload-item-meta">Die Seite wird in 1-2 Minuten aktualisiert – GitHub + Netlify arbeiten im Hintergrund 🤖✨</div>
             </div>
           `;
           if (list) list.appendChild(note);
@@ -286,8 +286,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="upload-item fade-in visible">
               <div class="upload-item-thumb">⚠️</div>
               <div class="upload-item-info">
-                <div class="upload-item-title">LUMI-Server nicht erreichbar</div>
-                <div class="upload-item-meta">Starte lumi-server.py auf deinem PC, dann klappt's! Oder schick mir die Dateien per Telegram 📱</div>
+                <div class="upload-item-title">Upload fehlgeschlagen</div>
+                <div class="upload-item-meta">Bitte versuch es später nochmal oder schick die Dateien per Telegram 📱</div>
               </div>
               <span class="upload-item-status status-new">offline</span>
             </div>
