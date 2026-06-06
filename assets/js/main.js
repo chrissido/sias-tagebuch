@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
           note.innerHTML = `
             <div class="upload-item-info" style="text-align: center;">
               <div class="upload-item-title" style="color: var(--sage-dark);">✨ ${successCount} Datei(en) gespeichert!</div>
-              <div class="upload-item-meta">Die Seite wird in 1-2 Minuten aktualisiert – GitHub + Netlify arbeiten im Hintergrund 🤖✨</div>
+              <div class="upload-item-meta">LUMI wird die neuen Momente gleich verarbeiten 🤖✨</div>
             </div>
           `;
           if (list) list.appendChild(note);
@@ -287,9 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="upload-item-thumb">⚠️</div>
               <div class="upload-item-info">
                 <div class="upload-item-title">Upload fehlgeschlagen</div>
-                <div class="upload-item-meta">Bitte versuch es später nochmal oder schick die Dateien per Telegram 📱</div>
+                <div class="upload-item-meta">Bitte versuch es später nochmal 📱</div>
               </div>
-              <span class="upload-item-status status-new">offline</span>
+              <span class="upload-item-status status-new">Fehler</span>
             </div>
           `;
         }
