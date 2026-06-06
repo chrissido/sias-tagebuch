@@ -7,13 +7,13 @@ import { randomUUID } from 'node:crypto';
 
 // === KONFIGURATION ===
 // GitHub Token: erst aus Umgebungsvariablen, dann Fallback (für erste Tests)
-const GITHUB_TOKEN = process.env.GITHUB_TOKEN || 'ghp_t0...rpmp';
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GITHUB_TOKEN || 'FALLBACK_BITTE_ENV_SETZEN';
 const GITHUB_OWNER = 'chrissido';
 const GITHUB_REPO = 'sias-tagebuch';
 const BRANCH = 'master';
 
 // Netlify Token: für Deploy-Trigger nach Upload
-const NETLIFY_AUTH = process.env.NETLIFY_ACCESS_TOKEN || process.env.NETLIFY_AUTH_TOKEN || 'nfp_...0e';
+const NETLIFY_AUTH = process.env.NETLIFY_ACCESS_TOKEN || process.env.NETLIFY_AUTH_TOKEN || process.env.NETLIFY_AUTH_TOKEN || 'FALLBACK_BITTE_ENV_SETZEN';
 const NETLIFY_SITE_ID = process.env.SITE_ID || process.env.NETLIFY_SITE_ID || '2818d7ea-91ff-472f-a7ed-fd4cd7298934';
 
 const ALLOWED = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'mp4', 'mov', 'webm', 'mp3', 'ogg', 'wav', 'm4a', 'heic', 'heif'];
