@@ -1,8 +1,10 @@
 // upload.mjs – LUMI Upload Proxy
 // Nimmt Dateien von der Website entgegen und leitet sie
 // an den Cloudflare Tunnel → lumi-server.py auf Christians PC weiter.
-// 🚇 Tunnel-URL – wird aus netlify.toml geladen
-const TUNNEL_URL = process.env.TUNNEL_URL || null;
+// 🚇 Tunnel-URL – diese URL ändert sich bei jedem Tunnel-Neustart!
+// Wenn der Tunnel neugestartet wird, musst du diese URL aktualisieren
+// und neu deployen (git push)!
+const TUNNEL_URL = "https://better-sensitive-equation-theorem.trycloudflare.com";
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB (Netlify Free Limit)
 const ALLOWED = ["jpg","jpeg","png","gif","webp","mp4","mov","webm","mp3","ogg","wav","m4a","heic","heif"];
 
