@@ -11,3 +11,6 @@ do-deploy.sh
 *.log
 .DS_Store
 Thumbs.db
+immich/pgdata/
+immich/.env
+uploads/immich/
