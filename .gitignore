@@ -4,6 +4,10 @@ _test_*.py
 lumi-server.py
 starte-lumi-server.bat
 uploads/
+starte-lumi-server.bat
+starte-lumi-cloudflare.bat
+deploy.sh
+do-deploy.sh
 *.log
 .DS_Store
 Thumbs.db
