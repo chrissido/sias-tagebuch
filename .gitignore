@@ -1,0 +1,9 @@
+node_modules/
+.netlify/
+_test_*.py
+lumi-server.py
+starte-lumi-server.bat
+uploads/
+*.log
+.DS_Store
+Thumbs.db
