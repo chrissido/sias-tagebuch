@@ -1,0 +1,1 @@
+{"functions":[{"bundler":"esbuild","buildData":{"runtimeAPIVersion":1},"mainFile":"D:\\Sias Tagebuch\\netlify\\functions\\upload.mjs","name":"upload","priority":10,"runtimeVersion":"nodejs24.x","path":"D:\\Sias Tagebuch\\.netlify\\functions\\upload.zip","runtime":"js"}],"system":{"arch":"x64","platform":"win32"},"timestamp":1780771469589,"version":1}

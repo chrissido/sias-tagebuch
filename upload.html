@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Hochladen – Sias Tagebuch</title>
+  <meta name="description" content="Fotos und Videos zu Sias Tagebuch beitragen.">
+  <link rel="stylesheet" href="assets/css/style.css?v=46">
+  <link rel="stylesheet" href="assets/css/password.css?v=46">
+  <link rel="stylesheet" href="assets/css/upload.css?v=46">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
+</head>
+<body>
+
+<div id="page-content">
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Sias Tagebuch</a>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="index.html">Timeline</a></li>
+      <li><a href="galerie.html">Galerie</a></li>
+      <li><a href="upload.html">Hochladen</a></li>
+      <li><a href="pages/about.html">Über</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <div class="upload-page">
+    <div class="container">
+      <div class="page-header">
+        <h1>Fotos &amp; Videos teilen</h1>
+        <p class="page-desc">Wähle Fotos aus, schreibe zu jedem eine kurze Beschreibung – LUMI kümmert sich um den Rest.</p>
+      </div>
+
+      <div class="upload-card" id="upload-card">
+
+        <!-- Schritt 1: Auswählen -->
+        <div class="upload-step" id="step-select">
+          <div class="upload-dropzone" id="dropzone">
+            <div class="dropzone-content">
+              <div class="dropzone-icon">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="#9CAF88" stroke-width="1.5">
+                  <rect x="6" y="10" width="36" height="28" rx="4" stroke-linecap="round"/>
+                  <circle cx="18" cy="22" r="4" stroke-linecap="round"/>
+                  <path d="M6 34L16 24L24 30L32 20L42 28" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <p class="dropzone-text">Fotos hier ablegen</p>
+              <button class="btn btn-primary" id="select-btn">📷 Fotos auswählen</button>
+              <p class="dropzone-hint">JPEG, PNG, WebP, HEIC, MP4 – max 10 MB pro Datei</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schritt 2: Vorschau mit Beschreibungen -->
+        <div class="upload-step" id="step-preview" style="display:none;">
+          <h3 class="step-title">Fotos beschriften</h3>
+          <p class="step-desc">Schreibe zu jedem Foto einen kurzen Satz – was ist auf dem Bild zu sehen?</p>
+
+          <div class="preview-grid" id="preview-grid"></div>
+
+          <div class="upload-meta">
+            <div class="field-group">
+              <label for="uploader-name">Dein Name</label>
+              <input type="text" id="uploader-name" placeholder="z.B. Christian, Yvonne, Oma…">
+            </div>
+          </div>
+
+          <div class="upload-actions">
+            <button class="btn btn-secondary" id="add-more-btn">+ Weitere Fotos</button>
+            <button class="btn btn-primary upload-submit" id="upload-submit" disabled>
+              Alle hochladen
+            </button>
+          </div>
+        </div>
+
+        <!-- Schritt 3: Status -->
+        <div class="upload-step" id="step-status" style="display:none;">
+          <div class="upload-status" id="upload-status"></div>
+          <button class="btn btn-secondary" id="reset-btn" style="margin-top:1rem;">Neue Fotos hochladen</button>
+        </div>
+
+      </div>
+
+      <div class="upload-note">
+        <p>Nach dem Hochladen verarbeitet <strong>LUMI</strong> die neuen Fotos beim nächsten Durchlauf – sie erscheinen dann automatisch in der Timeline und Galerie.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>Mit <span class="heart">♥</span> für Sia geschrieben</p>
+    <p>Sias Tagebuch &copy; 2026</p>
+  </footer>
+</main>
+</div>
+
+<script src="assets/js/password.js?v=46"></script>
+<script src="assets/js/main.js?v=46"></script>
+<script src="assets/js/upload.js?v=46"></script>
+</body>
+</html>

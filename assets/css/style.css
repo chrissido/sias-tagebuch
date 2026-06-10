@@ -2,6 +2,8 @@
    Sias Tagebuch – Elegantes, pastelliges Design
    ============================================ */
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
 /* ---------- RESET & BASE ---------- */
 *, *::before, *::after {
   margin: 0;
@@ -24,11 +26,14 @@
   --accent: #E8C4B8;
   --accent-light: #F2D9D0;
   --gold: #D4B896;
+  --card-bg: #B8D4C7;
+  --card-shadow: 0 4px 24px rgba(154, 140, 120, 0.15);
+  --card-border: 1px solid #A0C4B5;
   --shadow: 0 2px 20px rgba(154, 140, 120, 0.08);
   --shadow-hover: 0 8px 40px rgba(154, 140, 120, 0.14);
   --radius: 16px;
   --radius-sm: 10px;
-  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-serif: "Playfair Display", "Georgia", "Times New Roman", serif;
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --transition: all 0.3s ease;
 }
@@ -41,8 +46,62 @@ body {
   font-family: var(--font-sans);
   color: var(--text);
   background-color: var(--warm-bg);
+  background-image: url('../doodles/doodle_final.png');
+  background-size: 700px auto;
+  background-repeat: repeat;
+  background-position: top left;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(250, 245, 238, 0.25);
+  pointer-events: none;
+  z-index: 0;
+}
+
+#page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========== HINTERGRUND-VERZIERUNGEN ==========
+   Zarte Farbkreise + Punktmuster im Hintergrund 🌸
+   ============================================ */
+
+main {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 64px;
+}
+
+/* ========== DOODLE FLOATING ANIMATION ==========
+   Endless sanftes Schweben für Hintergrund-Doodles
+   ============================================ */
+@keyframes doodle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(1deg); }
+  50% { transform: translateY(-3px) rotate(-0.5deg); }
+  75% { transform: translateY(-6px) rotate(0.5deg); }
+}
+
+@keyframes doodle-float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-5px) rotate(0.5deg); }
+  66% { transform: translateY(-8px) rotate(-0.3deg); }
+}
+
+@keyframes doodle-drift {
+  0% { transform: translateX(0px) translateY(0px); }
+  50% { transform: translateX(6px) translateY(-4px); }
+  100% { transform: translateX(0px) translateY(0px); }
 }
 
 /* ---------- TYPOGRAPHY ---------- */
@@ -86,6 +145,11 @@ nav {
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(154, 140, 120, 0.08);
   padding: 0 2rem;
+  transition: transform 0.3s ease;
+}
+
+nav.nav-hidden {
+  transform: translateY(-100%);
 }
 
 .nav-inner {
@@ -99,13 +163,11 @@ nav {
 
 .nav-logo {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--sage-dark);
-  letter-spacing: 1px;
-}
-
-.nav-logo span {
-  color: var(--accent);
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -186,6 +248,26 @@ main {
   color: var(--sage);
   margin-bottom: 0.8rem;
   font-weight: 500;
+}
+
+/* ========== EINHEITLICHER SEITEN-KOPF ========== */
+.page-header {
+  text-align: center;
+  padding: 3rem 0 1.5rem;
+}
+
+.page-header h1 {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.page-header .page-desc {
+  max-width: 480px;
+  margin: 0.6rem auto 0;
+  color: var(--text-light);
+  font-size: 1rem;
 }
 
 /* ---------- HERO SECTION ---------- */
@@ -590,15 +672,15 @@ main {
 }
 
 .about-card {
-  background: white;
-  border-radius: var(--radius);
-  padding: 3rem;
-  box-shadow: var(--shadow);
-  margin-bottom: 2rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(154, 140, 120, 0.08);
+}
+
+.about-card:last-of-type {
+  border-bottom: none;
 }
 
 .about-card:hover {
-  box-shadow: var(--shadow-hover);
 }
 
 .about-grid {
@@ -610,16 +692,12 @@ main {
 
 .about-person {
   text-align: center;
-  padding: 2rem 1.5rem;
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  padding: 1.5rem;
   transition: var(--transition);
 }
 
 .about-person:hover {
-  box-shadow: var(--shadow-hover);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .about-person-avatar {

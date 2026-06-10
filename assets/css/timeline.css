@@ -1,0 +1,235 @@
+/* ==========================================
+   TIMELINE v6 – Datum mittig, Bilder L/R
+   ========================================== */
+
+.timeline-header {
+  padding: 4rem 0 2rem;
+  text-align: center;
+  position: relative;
+}
+.timeline-header-desc {
+  color: var(--text-light);
+  max-width: 480px;
+  margin: 0.5rem auto 1.5rem;
+  font-size: 1rem;
+}
+.timeline-stats {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+.timeline-stat {
+  font-size: 0.78rem;
+  color: var(--sage-dark);
+  background: rgba(154, 175, 136, 0.08);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 500;
+  border: 1px solid rgba(154, 175, 136, 0.15);
+}
+
+/* --- Container + Linie --- */
+.timeline {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom,
+    transparent 0%, var(--sage-light) 5%, var(--sage) 50%, var(--sage-light) 95%, transparent 100%);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+/* --- Item --- */
+.tl-item {
+  position: relative;
+  margin-bottom: 3rem;
+  opacity: 0;
+  transition: all 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tl-item[data-side="left"]  {
+  padding-right: calc(50% + 110px);
+  padding-left: 0;
+  transform: translateX(-40px);
+}
+.tl-item[data-side="right"] {
+  padding-left: calc(50% + 110px);
+  padding-right: 0;
+  transform: translateX(40px);
+}
+.tl-item.visible {
+  opacity: 1;
+  transform: translateX(0) !important;
+}
+
+/* --- DATUM MITTIG (mit Lücke in der Line) --- */
+.tl-date {
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--sage-dark);
+  letter-spacing: 0.5px;
+  font-style: italic;
+  padding: 0 10px;
+  white-space: nowrap;
+  transition: all 0.3s;
+  opacity: 0;
+  text-shadow: 0 0 8px rgba(250, 245, 238, 0.95), 0 0 14px rgba(250, 245, 238, 0.8);
+}
+.tl-item.visible .tl-date {
+  opacity: 1;
+  transition: all 0.5s 0.1s ease;
+}
+.tl-item:hover .tl-date {
+  color: var(--text);
+  font-style: normal;
+}
+
+/* --- SPRECHBLASEN-KARTE (abgerundet, mit Stil) --- */
+.tl-card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 1rem 1.3rem;
+  box-shadow: var(--card-shadow);
+  border: var(--card-border);
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0.92);
+  max-width: 380px;
+}
+
+/* --- Pastell-Farben für Kacheln --- */
+.tl-card--mint    { background: #B8D4C7; border-color: #A0C4B5; }
+.tl-card--rose    { background: #E8C4B8; border-color: #D4AFA3; }
+.tl-card--creme   { background: #FFF8F0; border-color: #E8DFD0; }
+.tl-card--lavendel{ background: #C9B8D4; border-color: #B5A3C0; }
+.tl-card--pfirsich{ background: #F0D4C4; border-color: #D8BFAE; }
+.tl-card--hellblau{ background: #B8CDD4; border-color: #A0B8C0; }
+.tl-card--gold    { background: #E8D5B8; border-color: #D4BFA0; }
+.tl-item.visible .tl-card {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.6s 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tl-card:hover {
+  box-shadow: 0 8px 32px rgba(154, 140, 120, 0.14);
+  transform: translateY(-4px) scale(1.01) !important;
+}
+
+/* --- Größen --- */
+.tl-item[data-size="groß"] .tl-card  { max-width: 460px; }
+.tl-item[data-size="breit"] .tl-card { max-width: 500px; }
+.tl-item[data-size="hoch"] .tl-card  { min-height: 180px; }
+
+/* --- Inhalt --- */
+.tl-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--text);
+  margin: 0 0 0.1rem;
+  line-height: 1.3;
+  font-weight: 400;
+}
+.tl-text {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0.2rem 0;
+}
+.tl-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  opacity: 0.7;
+}
+
+/* --- Bild --- */
+.tl-img {
+  margin-top: 0.6rem;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+.tl-img img {
+  width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tl-img:hover img { transform: scale(1.06); }
+
+/* --- Ende --- */
+.timeline-end {
+  text-align: center;
+  padding: 2rem 0 4rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s 0.3s ease;
+}
+.timeline-end.visible { opacity: 1; transform: translateY(0); }
+.timeline-end::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1.5px;
+  height: 1.5rem;
+  background: var(--sage);
+  transform: translateX(-50%);
+}
+.timeline-end-icon { font-size: 2rem; margin-bottom: 0.5rem; animation: float 3s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+.timeline-end p { font-family:var(--font-serif); font-size:1rem; color:var(--text-muted); margin:0.2rem 0; }
+.timeline-end-sub { font-family:var(--font-sans)!important; font-size:0.85rem!important; color:var(--sage)!important; font-style:italic; }
+
+/* --- Lightbox --- */
+.lightbox {
+  display:none; position:fixed; top:0; left:0; right:0; bottom:0;
+  background:rgba(0,0,0,0.85); z-index:10000; justify-content:center; align-items:center; padding:2rem;
+  backdrop-filter:blur(4px); animation:fadeIn .3s ease;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.lightbox.active { display:flex; }
+.lightbox img { max-width:92%; max-height:90vh; border-radius:var(--radius); box-shadow:0 20px 60px rgba(0,0,0,0.5); animation:zoomIn .3s cubic-bezier(.34,1.56,.64,1); }
+@keyframes zoomIn { from{transform:scale(.8);opacity:0} to{transform:scale(1);opacity:1} }
+.lightbox-close {
+  position:absolute; top:1.5rem; right:2rem; color:white; font-size:2rem; cursor:pointer;
+  width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.1);
+  transition:all .3s;
+}
+.lightbox-close:hover { background:rgba(255,255,255,.2); transform:rotate(90deg) scale(1.1); }
+
+/* --- Responsive --- */
+@media (max-width:768px) {
+  .timeline::before { left:18px; }
+  .tl-item, .tl-item[data-side="left"], .tl-item[data-side="right"] {
+    padding:0 0 2rem 2.8rem !important;
+    transform:translateX(20px) !important;
+  }
+  .tl-item.visible { transform:translateX(0) !important; }
+  .tl-date { left:18px !important; font-size:0.85rem; padding:0 6px; }
+  .tl-card { max-width:100% !important; margin:0 !important; }
+  .tl-card { padding:0.8rem 1rem; }
+  .timeline-stats { flex-direction:column; align-items:center; gap:0.4rem; }
+}

@@ -1,0 +1,4 @@
+immich/pgdata/
+uploads/immich/
+.git/
+assets/images/*.psd

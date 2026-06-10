@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Über – Sias Tagebuch</title>
   <meta name="description" content="Die Geschichte hinter Sias digitalem Tagebuch.">
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <link rel="stylesheet" href="../assets/css/password.css">
+  <link rel="stylesheet" href="../assets/css/style.css?v=46">
+  <link rel="stylesheet" href="../assets/css/password.css?v=46">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
 </head>
 <body>
@@ -15,24 +15,24 @@
   <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="../index.html" class="nav-logo">Sia<span>.</span></a>
+      <a href="../index.html" class="nav-logo">Sias Tagebuch</a>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="../index.html">Startseite</a></li>
+        <li><a href="../index.html">Timeline</a></li>
         <li><a href="../galerie.html">Galerie</a></li>
-        <li><a href="../meilensteine.html">Meilensteine</a></li>
+        <li><a href="../upload.html">Hochladen</a></li>
         <li><a href="about.html">Über</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
-    <!-- About Hero -->
-    <section class="about-hero">
+    <!-- About Header -->
+    <section class="page-header">
       <div class="container">
         <p class="section-subtitle">Über dieses Tagebuch</p>
         <h1>Für Sia – mit Liebe geschrieben</h1>
@@ -50,38 +50,18 @@
           <p>
             Dieses Tagebuch ist ein Ort für all diese Momente. Für die Bilder, die Geschichten, die kleinen Erfolge und die großen Entdeckungen. Alles liebevoll festgehalten, damit Sia eines Tages zurückblicken und sehen kann, wie sehr sie geliebt wird – und wie schön ihre ersten Jahre waren.
           </p>
-          <p style="font-family: Georgia, serif; font-style: italic; color: var(--sage-dark); margin-top: 1.5rem;">
+          <p style="font-family: var(--font-serif); font-style: italic; color: var(--sage-dark); margin-top: 1.5rem;">
             „Die Zeit vergeht, aber die Erinnerungen bleiben."
           </p>
-        </div>
-
-        <!-- Wer wir sind -->
-        <div class="about-card fade-in" style="margin-top: 2rem;">
-          <h2>Wer wir sind</h2>
-          <div class="about-grid">
-            <div class="about-person">
-              <div class="about-person-avatar">👨‍👧</div>
-              <div class="about-person-name">Christian</div>
-              <div class="about-person-role">Papa &amp; Geschichtenschreiber</div>
-            </div>
-            <div class="about-person">
-              <div class="about-person-avatar">👩‍👧</div>
-              <div class="about-person-name">Yvonne (Yvi)</div>
-              <div class="about-person-role">Mama &amp; beste Knuddlerin</div>
-            </div>
-            <div class="about-person">
-              <div class="about-person-avatar">🌸</div>
-              <div class="about-person-name">Sia</div>
-              <div class="about-person-role">Die Heldin dieser Geschichte</div>
-            </div>
-          </div>
         </div>
 
         <!-- Wie es funktioniert -->
         <div class="about-card fade-in" style="margin-top: 2rem;">
           <h2>Wie funktioniert das?</h2>
           <p>
-            Christian schickt Bilder, Videos und Sprachnachrichten per Telegram an LUMI – das digitale Tagebuch. LUMI sortiert alles, schreibt kurze liebevolle Begleittexte und bewahrt die schönsten Momente hier auf dieser Seite.
+            Familie und Freunde laden Fotos und Videos über den <a href="../upload.html">Hochladen</a>-Bereich hoch. 
+            <strong>LUMI</strong> – das digitale Tagebuch – schaut regelmäßig vorbei, sortiert alles 
+            nach Datum, schreibt kurze Begleittexte und fügt die schönsten Momente auf dieser Seite ein.
           </p>
           <p>
             So entsteht nach und nach ein Schatz an Erinnerungen – für Sia, für die Familie, für immer.
@@ -89,8 +69,8 @@
         </div>
 
         <!-- Für Sia -->
-        <div class="about-card fade-in" style="margin-top: 2rem; text-align: center; border: 1px solid rgba(154, 175, 136, 0.2); background: linear-gradient(180deg, var(--cream), var(--warm-white));">
-          <p style="font-family: Georgia, serif; font-size: 1.3rem; color: var(--sage-dark); font-style: italic; max-width: 500px; margin: 0 auto; line-height: 1.8;">
+        <div class="about-card fade-in" style="text-align: center; border: none;">
+          <p style="font-family: var(--font-serif); font-size: 1.3rem; color: var(--sage-dark); font-style: italic; max-width: 500px; margin: 0 auto; line-height: 1.8;">
             Liebe Sia,<br>
             eines Tages wirst du diese Seiten lesen.<br>
             Dann weißt du: Du warst von Anfang an ein Wunder. 🌸
@@ -107,7 +87,7 @@
   </main>
 </div>
 
-  <script src="../assets/js/password.js"></script>
-  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/password.js?v=46"></script>
+  <script src="../assets/js/main.js?v=46"></script>
 </body>
 </html>

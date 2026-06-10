@@ -1,0 +1,328 @@
+/* ==========================================
+   UPLOAD – Sias Tagebuch (Version 2)
+   Vorschau + Beschreibung pro Foto
+   ========================================== */
+
+.upload-page {
+  padding: 0 0 4rem;
+}
+
+/* --- Upload-Karte --- */
+.upload-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--card-shadow);
+  border: var(--card-border);
+}
+
+/* --- Schritte --- */
+.upload-step {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.step-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 0 0 0.3rem;
+  text-align: center;
+}
+
+.step-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0 0 1.2rem;
+}
+
+/* --- Drop Zone --- */
+.upload-dropzone {
+  border: 2px dashed var(--sage-light);
+  border-radius: var(--radius-sm);
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  background: rgba(255,255,255,0.4);
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragover {
+  border-color: var(--sage);
+  background: rgba(154, 175, 136, 0.08);
+}
+
+.dropzone-content {
+  pointer-events: none;
+}
+
+.dropzone-content .btn {
+  pointer-events: auto;
+  margin-top: 1rem;
+}
+
+.dropzone-icon {
+  margin-bottom: 0.8rem;
+}
+
+.dropzone-text {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0 0 0.3rem;
+}
+
+.dropzone-text strong {
+  color: var(--sage-dark);
+}
+
+.dropzone-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
+}
+
+/* --- Vorschau-Galerie --- */
+.preview-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.preview-card {
+  display: flex;
+  gap: 0.8rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 12px;
+  padding: 0.8rem;
+  border: 1px solid rgba(154, 140, 120, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.preview-card:hover {
+  box-shadow: 0 2px 12px rgba(154, 140, 120, 0.1);
+}
+
+/* --- Thumbnail --- */
+.preview-thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--sage-lighter);
+  position: relative;
+}
+
+.preview-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.preview-thumb .preview-type {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  font-size: 0.75rem;
+  background: rgba(0,0,0,0.3);
+  border-radius: 4px;
+  padding: 0 3px;
+}
+
+/* --- Body der Karte --- */
+.preview-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.preview-filename {
+  font-size: 0.8rem;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  font-weight: 500;
+}
+
+.preview-size {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.preview-remove {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0 0 0 0.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.preview-remove:hover {
+  color: #c0392b;
+}
+
+/* --- Beschreibungsfeld --- */
+.preview-desc {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1.5px solid rgba(154, 140, 120, 0.12);
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text);
+  background: white;
+  resize: vertical;
+  min-height: 50px;
+  outline: none;
+  transition: border-color 0.25s ease;
+  box-sizing: border-box;
+}
+
+.preview-desc:focus {
+  border-color: var(--sage);
+}
+
+.preview-desc::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* --- Uploader-Name --- */
+.upload-meta {
+  margin-bottom: 1.2rem;
+}
+
+.field-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.field-group input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid rgba(154, 140, 120, 0.15);
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: white;
+  transition: border-color 0.25s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.field-group input:focus {
+  border-color: var(--sage);
+}
+
+/* --- Buttons --- */
+.upload-actions {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.upload-actions .btn {
+  flex: 1;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.upload-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* --- Status-Ansicht --- */
+.upload-status {
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.upload-status p {
+  margin: 0.3rem 0;
+}
+
+.upload-status.success {
+  background: rgba(184, 212, 199, 0.2);
+  color: var(--sage-dark);
+  border: 1px solid rgba(184, 212, 199, 0.3);
+}
+
+.upload-status.error {
+  background: rgba(232, 196, 184, 0.2);
+  color: #8a5a4a;
+  border: 1px solid rgba(232, 196, 184, 0.3);
+}
+
+.upload-status.sending {
+  background: rgba(154, 175, 136, 0.08);
+  color: var(--text-light);
+  border: 1px solid rgba(154, 140, 120, 0.1);
+}
+
+/* --- Hinweis unten --- */
+.upload-note {
+  max-width: 560px;
+  margin: 2rem auto 0;
+  text-align: center;
+}
+
+.upload-note p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .upload-card {
+    padding: 1.5rem;
+  }
+  .upload-dropzone {
+    padding: 2rem 1rem;
+  }
+  .preview-card {
+    flex-direction: column;
+  }
+  .preview-thumb {
+    width: 100%;
+    height: 140px;
+  }
+  .upload-actions {
+    flex-direction: column;
+  }
+}

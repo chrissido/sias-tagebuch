@@ -4,6 +4,28 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---------- Auto-Hide Nav beim Scrollen ----------
+  let lastScroll = 0;
+  const nav = document.querySelector('nav');
+  const SCROLL_THRESHOLD = 10;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+
+    if (currentScroll <= 0) {
+      // Ganz oben → immer zeigen
+      nav.classList.remove('nav-hidden');
+    } else if (currentScroll > lastScroll + SCROLL_THRESHOLD) {
+      // Runter scrollen → verstecken
+      nav.classList.add('nav-hidden');
+    } else if (currentScroll < lastScroll - SCROLL_THRESHOLD) {
+      // Hoch scrollen → zeigen
+      nav.classList.remove('nav-hidden');
+    }
+
+    lastScroll = currentScroll;
+  });
+
   // ---------- Hamburger Menü ----------
   const toggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');

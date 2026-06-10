@@ -4,69 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galerie – Sias Tagebuch</title>
-  <meta name="description" content="Alle Bilder und Momente aus Sias ersten Jahren.">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/password.css">
+  <meta name="description" content="Alle Bilder aus Sias ersten Jahren.">
+  <link rel="stylesheet" href="assets/css/style.css?v=46">
+  <link rel="stylesheet" href="assets/css/password.css?v=46">
+  <link rel="stylesheet" href="assets/css/gallery.css?v=46">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>">
 </head>
 <body>
 
   <div id="page-content">
-  <!-- Navigation -->
   <nav>
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">Sia<span>.</span></a>
+      <a href="index.html" class="nav-logo">Sias Tagebuch</a>
       <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html">Startseite</a></li>
+        <li><a href="index.html">Timeline</a></li>
         <li><a href="galerie.html">Galerie</a></li>
-        <li><a href="meilensteine.html">Meilensteine</a></li>
+        <li><a href="upload.html">Hochladen</a></li>
         <li><a href="pages/about.html">Über</a></li>
       </ul>
     </div>
   </nav>
 
   <main>
-    <!-- Page Header -->
     <div class="page-header">
       <div class="container">
         <p class="section-subtitle">Galerie</p>
         <h1>Unsere Lieblingsmomente</h1>
-        <p>Jedes Bild erzählt eine kleine Geschichte – für Sia, für immer.</p>
+        <p class="page-desc">Jedes Bild erzählt eine kleine Geschichte – für Sia, für immer.</p>
+        <div class="gallery-tabs" id="gallery-tabs">
+          <button class="gallery-tab active" data-filter="neue">✨ Neusten Fotos</button>
+          <button class="gallery-tab" data-filter="baby">👶 Baby-Zeit</button>
+          <button class="gallery-tab" data-filter="meilenstein">👣 Meilensteine</button>
+          <button class="gallery-tab" data-filter="geburtstag">🎂 Geburtstage</button>
+          <button class="gallery-tab" data-filter="feste">🎄 Feste</button>
+          <button class="gallery-tab" data-filter="ausflug">🌳 Draußen & Ausflüge</button>
+          <button class="gallery-tab" data-filter="familie">👨‍👩‍👧 Familie</button>
+          <button class="gallery-tab" data-filter="süss">😂 Süße Momente</button>
+        </div>
       </div>
     </div>
 
     <div class="container">
-      <section class="section">
-        <!-- Leerer Zustand – wird später mit echten Bildern gefüllt -->
-        <div class="empty-state" id="gallery-empty">
-          <div class="empty-state-icon">📸</div>
-          <h3>Noch keine Momente</h3>
-          <p>Hier entsteht nach und nach Sias Fotoalbum. Sobald Bilder von Christian und Yvonne hinzugefügt werden, füllt sich diese Seite mit Leben.</p>
-        </div>
-
-        <!-- Gallery Grid (versteckt, bis Bilder da sind) -->
-        <div class="gallery-grid" id="gallery-grid" style="display: none;">
-          <!-- Galerie-Einträge werden später von LUMI eingefügt -->
-        </div>
-
-        <!-- Beispiel-Struktur für einen Galerie-Eintrag (als Kommentar):
-        <div class="gallery-item fade-in">
-          <img src="assets/images/moment-001.jpg" alt="Sia im Garten" class="gallery-item-image" loading="lazy">
-          <div class="gallery-item-overlay">
-            <div class="gallery-item-title">Sia im Garten</div>
-            <div class="gallery-item-date">06. Juni 2026</div>
-          </div>
-        </div>
-        -->
-      </section>
+      <div id="gallery-container">
+        <!-- Wird von JavaScript befüllt -->
+      </div>
+      <div class="gallery-empty" id="gallery-empty" style="display:none;">
+        <div class="empty-state-icon">📸</div>
+        <h3>Keine Momente gefunden</h3>
+        <p>Hier entsteht nach und nach Sias Fotoalbum.</p>
+      </div>
     </div>
 
-    <!-- Footer -->
     <footer>
       <p>Mit <span class="heart">♥</span> für Sia geschrieben</p>
       <p>Sias Tagebuch &copy; 2026</p>
@@ -74,7 +67,8 @@
   </main>
 </div>
 
-  <script src="assets/js/password.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/password.js?v=46"></script>
+  <script src="assets/js/main.js?v=46"></script>
+  <script src="assets/js/gallery.js?v=46"></script>
 </body>
 </html>
