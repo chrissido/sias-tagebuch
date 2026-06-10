@@ -2,6 +2,7 @@
 personen.json
 recognize_faces.py
 batch_recognize.py
+batch_face_scan.py
 process_uploads.py
 generate_descriptions.py
 generate_atmo_descriptions.py
@@ -9,11 +10,34 @@ write_atmo_descriptions.py
 write_all_descriptions.py
 categorize_entries.py
 upload-server.py
+lumi-server.py
 starte-lumi-server.bat
+starte-lumi-cloudflare.bat
+remove_names.py
+rewrite_descriptions.py
+rewrite_descriptions_v2.py
+rewrite_titles.py
+korrigiere_beschreibungen.py
 
 # Uploads & Profile
 uploads/
 profiles/
 
+# Netlify (nicht für GitHub Pages)
+netlify/
+.netlify/
+.netlifyignore
+
+# Asset-Builds
+_site/
+scripts/
+
+# Logs
+*.log
+
 # Git
 .git/
+
+# OS
+.DS_Store
+Thumbs.db
